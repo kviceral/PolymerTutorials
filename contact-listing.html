@@ -1,0 +1,75 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+
+<dom-module id="contact-list">
+
+  <style>
+      ul {
+         list-style: none;
+      }
+      li {
+          display: flex;
+          margin-bottom: 40px;
+          padding: 20px;
+      }
+      li img {
+          border-radius: 50%;
+          margin-right: 10px;
+      }
+      li + li {
+          border-top: solid 1px #666;
+      }
+      h3 {
+          margin: 0 40px 0 0;
+          line-height: 80px;
+      }
+      li span {
+          line-height: 80px;
+      }
+  </style>
+
+  <template>
+      <ul>
+          <template is="dom-repeat" items="{{contacts}}">
+              <li>
+                  <img src="{{item.img}}" alt="">
+                  <h3>{{item.name}}</h3>
+                  <span>{{item.email}}</span>
+              </li>
+          </template>
+      </ul>
+  </template>
+
+</dom-module>
+
+<script>
+	Polymer({
+        is: "contact-list",
+
+        ready: function(){
+            this.contacts = [
+                {
+                    name: "Bruce",
+                    email: "bruce@wayne.com",
+                    img: "https://randomuser.me/api/portraits/thumb/men/10.jpg"
+                },
+                {
+                    name: "Tim",
+                    email: "tim@drake.com",
+                    img: "https://randomuser.me/api/portraits/thumb/men/3.jpg"
+                },
+                {
+                    name: "Billy",
+                    email: "billy@nilly.com",
+                    img: "https://randomuser.me/api/portraits/thumb/men/1.jpg"
+                },
+                {
+                    name: "Kris",
+                    email: "me@kris.com",
+                    img: "https://randomuser.me/api/portraits/thumb/men/15.jpg"
+                }
+            ]
+        }
+
+
+	});
+</script>
